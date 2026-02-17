@@ -4,10 +4,9 @@ Guidelines for AI agents working in this repository.
 
 ## Repository Overview
 
-This repository contains **Agent Skills** for AI agents following the [Agent Skills specification](https://agentskills.io/specification.md). It also serves as a **Claude Code plugin marketplace** via `.claude-plugin/marketplace.json`.
+This repository contains **Agent Skills** for AI agents following the [Agent Skills specification](https://agentskills.io/specification.md).
 
 - **Name**: Marketing Skills
-- **GitHub**: [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills)
 - **Creator**: Corey Haines
 - **License**: MIT
 
@@ -30,6 +29,7 @@ marketingskills/
 **Not applicable** - This is a content-only repository with no executable code.
 
 Verify manually:
+
 - YAML frontmatter is valid
 - `name` field matches directory name exactly
 - `name` is 1-64 chars, lowercase alphanumeric and hyphens only
@@ -50,12 +50,12 @@ description: What this skill does and when to use it. Include trigger phrases.
 
 ### Frontmatter Field Constraints
 
-| Field         | Required | Constraints                                                      |
-|---------------|----------|------------------------------------------------------------------|
-| `name`        | Yes      | 1-64 chars, lowercase `a-z`, numbers, hyphens. Must match dir.   |
-| `description` | Yes      | 1-1024 chars. Describe what it does and when to use it.          |
-| `license`     | No       | License name (default: MIT)                                      |
-| `metadata`    | No       | Key-value pairs (author, version, etc.)                          |
+| Field         | Required | Constraints                                                    |
+| ------------- | -------- | -------------------------------------------------------------- |
+| `name`        | Yes      | 1-64 chars, lowercase `a-z`, numbers, hyphens. Must match dir. |
+| `description` | Yes      | 1-1024 chars. Describe what it does and when to use it.        |
+| `license`     | No       | License name (default: MIT)                                    |
+| `metadata`    | No       | Key-value pairs (author, version, etc.)                        |
 
 ### Name Field Rules
 
@@ -109,6 +109,7 @@ skills/skill-name/
 ### Description Field Best Practices
 
 The `description` is critical for skill discovery. Include:
+
 1. What the skill does
 2. When to use it (trigger phrases)
 3. Related skills for scope boundaries
@@ -175,6 +176,7 @@ tools/
 ### When to Use Tools
 
 Skills reference relevant tools for implementation. For example:
+
 - `referral-program` skill → rewardful, tolt, dub-co, mention-me guides
 - `analytics-tracking` skill → ga4, mixpanel, segment guides
 - `email-sequence` skill → customer-io, mailchimp, resend guides
@@ -193,6 +195,7 @@ When using any skill from this repository:
    - Any skill has a major version bump (e.g., 1.x to 2.x)
 
 3. **Non-blocking notification** at end of response:
+
    ```
    ---
    Skills update available: X marketing skills have updates.
