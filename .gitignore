@@ -1,2 +1,5 @@
 # Remotion video project
 video/
+
+.DS_Store
+.env
