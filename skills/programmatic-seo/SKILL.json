@@ -1,0 +1,85 @@
+{
+  "skill_id": "programmatic-seo",
+  "version": "1.0.0",
+  "name": "Programmatic SEO",
+  "description": "Create SEO-driven pages at scale using templates and structured data (e.g., directory, location, comparison, and integration pages) while avoiding thin content and ensuring useful on-page structure.",
+  "safety_class": "write_draft",
+  "tool_allowlist": [
+    "site.get_environment",
+    "content.inventory",
+    "seo.get_config",
+    "content.create_page",
+    "content.bulk_create"
+  ],
+  "tags": ["seo", "programmatic-seo", "pseo", "wordpress", "content"],
+  "inputs_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "goal": {
+        "type": "string",
+        "description": "What you want to achieve with the programmatic SEO build (e.g., launch integration pages, city pages, comparison pages)."
+      },
+      "page_type": {
+        "type": "string",
+        "description": "High-level page archetype (directory, location, integration, comparison, etc.)."
+      },
+      "template": {
+        "type": "object",
+        "description": "Template instructions for the pages (sections, headings, data placements).",
+        "additionalProperties": true
+      },
+      "rows": {
+        "type": "array",
+        "description": "Structured dataset rows used to generate pages. Each row corresponds to one page.",
+        "items": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "slug_pattern": {
+        "type": "string",
+        "description": "Optional slug pattern, e.g. '/integrations/{integration}' or '/{city}/{service}'."
+      },
+      "internal_linking": {
+        "type": "object",
+        "description": "Optional internal linking strategy and hub/spoke relationships.",
+        "additionalProperties": true
+      },
+      "draft_only": {
+        "type": "boolean",
+        "description": "If true, ensure all created pages are drafts (recommended).",
+        "default": true
+      }
+    }
+  },
+  "outputs_schema": {
+    "type": "object",
+    "additionalProperties": true,
+    "properties": {
+      "created_count": {
+        "type": "integer",
+        "description": "Number of draft pages created."
+      },
+      "created_items": {
+        "type": "array",
+        "description": "Created page references (ids/urls if available).",
+        "items": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "notes": {
+        "type": "string",
+        "description": "Any notes/warnings about thin content risk, template coverage, or required human review."
+      }
+    }
+  },
+  "caps": {
+    "max_pages": 50,
+    "max_tool_calls": 25,
+    "max_steps": 25,
+    "max_cost_usd": 2.5
+  },
+  "deprecated": false
+}
