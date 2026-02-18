@@ -4,3 +4,6 @@ video/
 .DS_Store
 **/.DS_Store
 .env
+
+# Infrastructure config (not part of this repo)
+api.synqengine.com.conf
